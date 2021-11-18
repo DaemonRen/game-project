@@ -3,7 +3,7 @@
 This project is to make a fully functioning browser based game using HTML, CSS/SCSS and JavaScript.
 
 
-### Requirements ###
+## Requirements ##
 
 • You need to have it as a public repository on GitHub
   o In the repo you will also need a README.md with a short intro to the project.
@@ -28,3 +28,14 @@ This project is to make a fully functioning browser based game using HTML, CSS/S
   
 • Add a link to this project on your portfolio – this is your first chance to really show off
   your web skills!
+
+
+## Process ##
+
+- [x] Prompt to press button, disappears once button pressed
+- [ ] Once button pressed, 1 second delay then AI "presses button"
+- [ ] Once both buttons pressed, result decided (win, draw)
+- [ ] Once result decided, +1 score to winner, or +0 points to both if draw
+- [ ] Back to #1
+- [ ] If player score =3, Congratulations message and prompt play again
+- [ ] If AI score =3, Git gud message and prompt play again
