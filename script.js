@@ -29,7 +29,7 @@ const playerScore = document.getElementById("score-display");
 const aiScore = document.getElementById("aiscore-display");
 
 let choicePressed;
-let aiChoice = ["rock", "paper", "scissors"]
+const aiChoice = ["Rock", "Paper", "Scissors"]
 let aiChoicePressed;
 let gameOverWin;
 let gameOverLose;
@@ -46,6 +46,14 @@ choices.forEach(choice => {
         }, 1000);
     })
 });
+
+for (i = 0; i < aiChoice.length; i++){
+    const aiChoicePressed = aiChoice[Math.floor(Math.random() * aiChoice.length)];
+    playerTwo.innerText = aiChoicePressed;
+    console.log(aiChoicePressed);
+};
+
+
 
 
 
