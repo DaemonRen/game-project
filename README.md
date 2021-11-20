@@ -35,7 +35,7 @@ This project is to make a fully functioning browser based game using HTML, CSS/S
 - [x] Prompt to press button, disappears once button pressed
 - [x] Once button pressed, 1 second delay then AI "presses button"
 - [x] Once both buttons pressed, result decided (Win, Loss, Draw)
-- [ ] Once result decided, +1 score to winner, or +0 points to both if draw
-- [ ] Back to #1
+- [x] Once result decided, +1 score to winner, or +0 points to both if draw
+- [x] Back to #1
 - [ ] If player score =3, Congratulations message and prompt play again
 - [ ] If AI score =3, Git gud message and prompt play again
