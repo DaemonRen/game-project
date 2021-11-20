@@ -37,5 +37,6 @@ This project is to make a fully functioning browser based game using HTML, CSS/S
 - [x] Once both buttons pressed, result decided (Win, Loss, Draw)
 - [x] Once result decided, +1 score to winner, or +0 points to both if draw
 - [x] Back to #1
-- [ ] If player score =3, Congratulations message and prompt play again
-- [ ] If AI score =3, Git gud message and prompt play again
+- [x] If player score =3, Congratulations message
+- [x] If AI score =3, Git gud message
+- [ ] Prompt "Play again!" button
