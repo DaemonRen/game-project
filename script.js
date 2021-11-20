@@ -46,19 +46,30 @@ const aiChoicePressed = (() => {
     }
 });
 
-choices.forEach(choice => {
-    choice.addEventListener("click", (event) => {
-        choicePressed = event.target.innerHTML;
-        playerOne.innerHTML = choicePressed;
-        // console.log(choicePressed);
-        setTimeout(() => { 
-            // alert("Test");
-            aiChoicePressed ();
-            // console.log(choicePressed + aiChoicePressed);
-            resolve ();
-        }, 1000);
-
-    })
+const resolve = (() => {
+    switch (choicePressed + playerTwo.innerHTML) {
+        case "RockRock":
+        case "ScissorsScissors":
+        case "PaperPaper":
+            // console.log("Draw");
+            prompt.innerHTML = "Draw";
+            draw();
+            break;
+        case "RockPaper":
+        case "ScissorsRock":
+        case "PaperScissors":
+            // console.log("Loss");
+            prompt.innerHTML = "Loss"
+            lose();
+            break;
+        case "RockScissors":
+        case "ScissorsPaper":
+        case "PaperRock":
+            // console.log("Win");
+            prompt.innerHTML = "Win"
+            win ();
+            break;
+    };
 });
 
 const win = (() => {
@@ -67,82 +78,31 @@ const win = (() => {
     playerScore_span.innerHTML = userScore;
 })
 
-// const lose = (() => {
-//     console.log("Lose");
-//     aiScore = aiScore + 1;
-//     aiScore_span.innerHTML = aiScore
-// })
-
-// const draw = (() => {
-//     console.log("Draw");
-// })
-
-const resolve = (() => {
-    switch (choicePressed + aiChoicePressed) {
-        case "RockRock":
-            // console.log("Draw");
-            prompt.innerHTML = "Draw";
-            draw();
-            break;
-        case "RockPaper":
-            // console.log("Loss");
-            prompt.innerHTML = "Loss"
-            lose();
-            break;
-        case "RockScissors":
-            // console.log("Win");
-            prompt.innerHTML = "Win"
-            win ();
-            break;
-        case "ScissorsRock":
-            // console.log("Loss");
-            prompt.innerHTML = "Loss"
-            lose();
-            break;
-        case "ScissorsPaper":
-            // console.log("Win");
-            prompt.innerHTML = "Win"
-            win ();
-            break;
-        case "ScissorsScissors":
-            // console.log("Draw");
-            prompt.innerHTML = "Draw"
-            draw();
-            break;
-        case "PaperRock":
-            // console.log("Win");
-            prompt.innerHTML = "Win"
-            win ();
-            break;
-        case "PaperPaper":
-            // console.log("Draw");
-            prompt.innerHTML = "Draw"
-            draw();
-            break;
-        case "PaperScissors":
-            // console.log("Loss");
-            prompt.innerHTML = "Loss"
-            lose();
-            break;
-        default:
-    };
+const lose = (() => {
+    console.log("Lose");
+    aiScore = aiScore + 1;
+    aiScore_span.innerHTML = aiScore
 })
 
+const draw = (() => {
+    console.log("Draw");
+})
+
+choices.forEach(choice => {
+    choice.addEventListener("click", (event) => {
+        choicePressed = event.target.innerHTML;
+        playerOne.innerHTML = choicePressed;
+        // console.log(choicePressed);
+        setTimeout(() => { 
+            // alert("Test");
+            aiChoicePressed ();
+            console.log(aiChoicePressed);
+            resolve ();
+        }, 1000);
+
+    })
+});
 
 
 
 
-
-
-// if (prompt.innerHTML = "Win") {
-//     userScore = userScore + 1; 
-//     playerScore_span.innerHTML = userScore
-// } else if (prompt.innerHTML = "Draw") {
-//     playerScore_span.innerHTML = userScore
-//     aiScore_span.innerHTML = aiScore
-// } else if (prompt.innerHTML = "Loss") {
-//     aiScore = aiScore + 1; 
-//     aiScore_span_span.innerHTML = userScore
-// } else {
-//     prompt.innerHTML = "Your move!"
-// };
