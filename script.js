@@ -25,11 +25,11 @@ const choices = document.querySelectorAll(".choices");
 const playerOne = document.getElementById("player-one");
 const playerTwo = document.getElementById("player-two");
 const prompt = document.getElementById("prompt-text");
-// const playerScore_span = document.getElementById("score-display");
-// const aiScore_span = document.getElementById("aiscore-display");
+let playerScore_span = document.getElementById("score-display") 
+let aiScore_span = document.getElementById("aiscore-display");
 
 let choicePressed;
-const aiChoice = ["Rock", "Paper", "Scissors"];
+
 // let aiChoicePressed;
 let userScore = 0;
 let aiScore = 0;
@@ -37,7 +37,14 @@ let result;
 let gameOverWin;
 let gameOverLose;
 // console.log(choicePressed);
-prompt.innerHTML = "Your move!"
+
+const aiChoicePressed = (() => {
+    const aiChoice = ["Rock", "Paper", "Scissors"];
+    for (i = 0; i < aiChoice.length; i++) {
+        const aiChoicePressed = aiChoice[Math.floor(Math.random() * aiChoice.length)];
+        playerTwo.innerHTML = aiChoicePressed;
+    }
+});
 
 choices.forEach(choice => {
     choice.addEventListener("click", (event) => {
@@ -46,56 +53,86 @@ choices.forEach(choice => {
         // console.log(choicePressed);
         setTimeout(() => { 
             // alert("Test");
-            for (i = 0; i < aiChoice.length; i++){
-                const aiChoicePressed = aiChoice[Math.floor(Math.random() * aiChoice.length)];
-                playerTwo.innerText = aiChoicePressed;
-                // console.log(choicePressed + aiChoicePressed);
-                switch (choicePressed + aiChoicePressed) {
-                    case "RockRock":
-                        console.log("Draw");
-                        prompt.innerHTML = "Draw"
-                        break;
-                    case "RockPaper":
-                        console.log("Loss");
-                        prompt.innerHTML = "Loss"
-                        break;
-                    case "RockScissors":
-                        console.log("Win");
-                        prompt.innerHTML = "Win"
-                        break;
-                    case "ScissorsRock":
-                        console.log("Loss");
-                        prompt.innerHTML = "Loss"
-                        break;
-                    case "ScissorsPaper":
-                        console.log("Win");
-                        prompt.innerHTML = "Win"
-                        break;
-                    case "ScissorsScissors":
-                        console.log("Draw");
-                        prompt.innerHTML = "Draw"
-                        break;
-                    case "PaperRock":
-                        console.log("Win");
-                        prompt.innerHTML = "Win"
-                        break;
-                    case "PaperPaper":
-                        console.log("Draw");
-                        prompt.innerHTML = "Draw"
-                        break;
-                    case "PaperScissors":
-                        console.log("Loss");
-                        prompt.innerHTML = "Loss"
-                        break;
-                    default:
-                };
-            };
+            aiChoicePressed ();
+            // console.log(choicePressed + aiChoicePressed);
+            resolve ();
         }, 1000);
+
     })
 });
 
-// let playerScore_span = document.getElementById("score-display");
-// let aiScore_span = document.getElementById("aiscore-display");
+const win = (() => {
+    console.log("Win");
+    userScore++;
+    playerScore_span.innerHTML = userScore;
+})
+
+// const lose = (() => {
+//     console.log("Lose");
+//     aiScore = aiScore + 1;
+//     aiScore_span.innerHTML = aiScore
+// })
+
+// const draw = (() => {
+//     console.log("Draw");
+// })
+
+const resolve = (() => {
+    switch (choicePressed + aiChoicePressed) {
+        case "RockRock":
+            // console.log("Draw");
+            prompt.innerHTML = "Draw";
+            draw();
+            break;
+        case "RockPaper":
+            // console.log("Loss");
+            prompt.innerHTML = "Loss"
+            lose();
+            break;
+        case "RockScissors":
+            // console.log("Win");
+            prompt.innerHTML = "Win"
+            win ();
+            break;
+        case "ScissorsRock":
+            // console.log("Loss");
+            prompt.innerHTML = "Loss"
+            lose();
+            break;
+        case "ScissorsPaper":
+            // console.log("Win");
+            prompt.innerHTML = "Win"
+            win ();
+            break;
+        case "ScissorsScissors":
+            // console.log("Draw");
+            prompt.innerHTML = "Draw"
+            draw();
+            break;
+        case "PaperRock":
+            // console.log("Win");
+            prompt.innerHTML = "Win"
+            win ();
+            break;
+        case "PaperPaper":
+            // console.log("Draw");
+            prompt.innerHTML = "Draw"
+            draw();
+            break;
+        case "PaperScissors":
+            // console.log("Loss");
+            prompt.innerHTML = "Loss"
+            lose();
+            break;
+        default:
+    };
+})
+
+
+
+
+
+
 
 // if (prompt.innerHTML = "Win") {
 //     userScore = userScore + 1; 
@@ -108,12 +145,4 @@ choices.forEach(choice => {
 //     aiScore_span_span.innerHTML = userScore
 // } else {
 //     prompt.innerHTML = "Your move!"
-// }
-
-
-
-
-
-
-
-
+// };
