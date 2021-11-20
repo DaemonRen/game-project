@@ -7,7 +7,7 @@ This project is to make a fully functioning browser based game using HTML, CSS/S
 
 • You need to have it as a public repository on GitHub
 
-  o In the repo you will also need a README.md with a short intro to the project.
+      o In the repo you will also need a README.md with a short intro to the project.
   
 • You must have at least 15 Git commits for the project and repo on GitHub
 
