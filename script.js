@@ -27,6 +27,7 @@ const playerTwo = document.getElementById("player-two");
 const prompt = document.getElementById("prompt-text");
 let playerScore_span = document.getElementById("score-display") 
 let aiScore_span = document.getElementById("aiscore-display");
+const restartBtn = document.getElementById("restart-btn")
 
 let choicePressed;
 
@@ -80,7 +81,9 @@ const win = (() => {
     userScore++;
     playerScore_span.innerHTML = userScore;
     if (userScore >= 3) {
-        prompt.innerHTML = "You win!"
+        prompt.innerHTML = "You win!";
+        // choices.classList.add("invisible");
+        restartBtn.classList.remove(".invisible");
     }
 });
 
@@ -89,7 +92,9 @@ const lose = (() => {
     aiScore = aiScore + 1;
     aiScore_span.innerHTML = aiScore
     if (aiScore >= 3) {
-        prompt.innerHTML = "You lose!"
+        prompt.innerHTML = "You lose!";
+        // choices.classList.add("invisible");
+        restartBtn.classList.remove(".invisible");
     }
 });
 
@@ -110,6 +115,14 @@ choices.forEach(choice => {
         }, 1000);
 
     })
+});
+
+restart.addEventListener("click", () => {
+    userScore = 0;
+    aiScore =0;
+    prompt.innerHTML = "Your turn!";
+    restartBtn.classList.add("invisible");
+    choices.classList.remove("invisible");
 });
 
 

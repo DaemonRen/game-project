@@ -54,10 +54,14 @@
 }
 * #restart {
   display: flex;
-  visibility: visible;
   justify-content: center;
   padding-top: 15vh;
 }
 * #restart #restart-btn {
   width: 40vw;
+  visibility: hidden;
+}
+
+.invisible {
+  visibility: hidden;
 }

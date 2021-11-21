@@ -63,7 +63,6 @@
 
     #restart {
         display: flex;
-        visibility: visible;
         justify-content: center;
         padding-top: 15vh;
 
@@ -72,3 +71,13 @@
         }
     }
 }
+
+// .visible {
+//     width: 40vw;
+//     visibility: visible;
+// }
+
+.invisible {
+    visibility: hidden;
+}
+
