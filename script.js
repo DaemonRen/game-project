@@ -25,30 +25,120 @@ const choices = document.querySelectorAll(".choices");
 const playerOne = document.getElementById("player-one");
 const playerTwo = document.getElementById("player-two");
 const prompt = document.getElementById("prompt-text");
-const playerScore = document.getElementById("score-display");
-const aiScore = document.getElementById("aiscore-display");
+let playerScore_span = document.getElementById("score-display");
+let aiScore_span = document.getElementById("aiscore-display");
+const restartBtn = document.getElementById("restart-btn");
 
 let choicePressed;
-let aiChoice = ["rock", "paper", "scissors"]
-let aiChoicePressed;
+
+// let aiChoicePressed;
+let userScore = 0;
+let aiScore = 0;
+let reset = 0;
+let result;
 let gameOverWin;
 let gameOverLose;
 // console.log(choicePressed);
+
+aiScore_span.innerHTML = 0;
+playerScore_span.innerHTML = 0;
+
+const aiChoicePressed = (() => {
+    const aiChoice = ["Rock", "Paper", "Scissors"];
+    for (i = 0; i < aiChoice.length; i++) {
+        const aiChoicePressed = aiChoice[Math.floor(Math.random() * aiChoice.length)];
+        playerTwo.innerHTML = aiChoicePressed;
+    }
+});
+
+const resolve = (() => {
+    switch (choicePressed + playerTwo.innerHTML) {
+        case "RockRock":
+        case "ScissorsScissors":
+        case "PaperPaper":
+            // console.log("Draw");
+            prompt.innerHTML = "Draw";
+            draw();
+            break;
+        case "RockPaper":
+        case "ScissorsRock":
+        case "PaperScissors":
+            // console.log("Loss");
+            prompt.innerHTML = "Loss"
+            lose();
+            break;
+        case "RockScissors":
+        case "ScissorsPaper":
+        case "PaperRock":
+            // console.log("Win");
+            prompt.innerHTML = "Win"
+            win ();
+            break;
+    };
+});
+
+const win = (() => {
+    console.log("Win");
+    userScore++;
+    playerScore_span.innerHTML = userScore;
+    if (userScore >= 3) {
+        prompt.innerHTML = "You win!";
+        rock.classList.add("invisible");
+        paper.classList.add("invisible");
+        scissors.classList.add("invisible");
+        prompt.classList.add("largeTextWin");
+        restartBtn.classList.remove("invisible");
+    }
+});
+
+const lose = (() => {
+    console.log("Lose");
+    aiScore++;
+    aiScore_span.innerHTML = aiScore
+    if (aiScore >= 3) {
+        prompt.innerHTML = "You lose!";
+        rock.classList.add("invisible");
+        paper.classList.add("invisible");
+        scissors.classList.add("invisible");
+        prompt.classList.add("largeTextLose");
+        restartBtn.classList.remove("invisible");
+    }
+});
+
+const draw = (() => {
+    console.log("Draw");
+});
 
 choices.forEach(choice => {
     choice.addEventListener("click", (event) => {
         choicePressed = event.target.innerHTML;
         playerOne.innerHTML = choicePressed;
-        console.log(choicePressed);
-        prompt.innerHTML = "";
-        setTimeout(function() { 
+        // console.log(choicePressed);
+        setTimeout(() => { 
             // alert("Test");
+            aiChoicePressed ();
+            // console.log(aiChoicePressed);
+            resolve ();
         }, 1000);
+
     })
 });
 
-
-
+restart.addEventListener("click", () => {
+    userScore = 0;
+    aiScore = 0;
+    document.getElementById("score-display").innerHTML = userScore;
+    document.getElementById("aiscore-display").innerHTML = userScore;
+    prompt.innerHTML = "Your turn!";
+    prompt.classList.remove("largeTextWin");
+    prompt.classList.remove("largeTextLose");
+    playerOne.innerHTML = "Player 1";
+    playerTwo.innerHTML = "Player 2"
+    restartBtn.classList.add("invisible");
+    rock.classList.remove("invisible");
+    paper.classList.remove("invisible");
+    scissors.classList.remove("invisible");
+});
 
 
 

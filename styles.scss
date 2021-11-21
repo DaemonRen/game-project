@@ -23,7 +23,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
-        padding-top: 200px;
+        padding-top: 15vh;
         height: 15vh;
         font-size: 40px;
     }
@@ -32,7 +32,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
-        padding-top: 200px;
+        padding-top: 25vh;
         height: 15vh;
         
         .choice-type {
@@ -60,4 +60,34 @@
             position: absolute;
         }
     }
+
+    #restart {
+        display: flex;
+        justify-content: center;
+        padding-top: 15vh;
+
+        #restart-btn {
+            width: 40vw;
+        }
+    }
 }
+
+// .visible {
+//     width: 40vw;
+//     visibility: visible;
+// }
+
+.invisible {
+    visibility: hidden;
+}
+
+.largeTextWin {
+    font-size: 4rem;
+    color: green;
+}
+
+.largeTextLose {
+    font-size: 4rem;
+    color: red;
+}
+
