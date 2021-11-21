@@ -40,4 +40,5 @@ This project is to make a fully functioning browser based game using HTML, CSS/S
 - [x] Back to #1
 - [x] If player score =3, Congratulations message
 - [x] If AI score =3, Git gud message
-- [ ] Prompt "Play again!" button
+- [x] Prompt "Play again!" button
+- [ ] Styling
