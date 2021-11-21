@@ -59,9 +59,18 @@
 }
 * #restart #restart-btn {
   width: 40vw;
-  visibility: hidden;
 }
 
 .invisible {
   visibility: hidden;
+}
+
+.largeTextWin {
+  font-size: 4rem;
+  color: green;
+}
+
+.largeTextLose {
+  font-size: 4rem;
+  color: red;
 }

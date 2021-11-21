@@ -25,15 +25,16 @@ const choices = document.querySelectorAll(".choices");
 const playerOne = document.getElementById("player-one");
 const playerTwo = document.getElementById("player-two");
 const prompt = document.getElementById("prompt-text");
-let playerScore_span = document.getElementById("score-display") 
+let playerScore_span = document.getElementById("score-display");
 let aiScore_span = document.getElementById("aiscore-display");
-const restartBtn = document.getElementById("restart-btn")
+const restartBtn = document.getElementById("restart-btn");
 
 let choicePressed;
 
 // let aiChoicePressed;
 let userScore = 0;
 let aiScore = 0;
+let reset = 0;
 let result;
 let gameOverWin;
 let gameOverLose;
@@ -82,19 +83,25 @@ const win = (() => {
     playerScore_span.innerHTML = userScore;
     if (userScore >= 3) {
         prompt.innerHTML = "You win!";
-        // choices.classList.add("invisible");
-        restartBtn.classList.remove(".invisible");
+        rock.classList.add("invisible");
+        paper.classList.add("invisible");
+        scissors.classList.add("invisible");
+        prompt.classList.add("largeTextWin");
+        restartBtn.classList.remove("invisible");
     }
 });
 
 const lose = (() => {
     console.log("Lose");
-    aiScore = aiScore + 1;
+    aiScore++;
     aiScore_span.innerHTML = aiScore
     if (aiScore >= 3) {
         prompt.innerHTML = "You lose!";
-        // choices.classList.add("invisible");
-        restartBtn.classList.remove(".invisible");
+        rock.classList.add("invisible");
+        paper.classList.add("invisible");
+        scissors.classList.add("invisible");
+        prompt.classList.add("largeTextLose");
+        restartBtn.classList.remove("invisible");
     }
 });
 
@@ -119,10 +126,18 @@ choices.forEach(choice => {
 
 restart.addEventListener("click", () => {
     userScore = 0;
-    aiScore =0;
+    aiScore = 0;
+    document.getElementById("score-display").innerHTML = userScore;
+    document.getElementById("aiscore-display").innerHTML = userScore;
     prompt.innerHTML = "Your turn!";
+    prompt.classList.remove("largeTextWin");
+    prompt.classList.remove("largeTextLose");
+    playerOne.innerHTML = "Player 1";
+    playerTwo.innerHTML = "Player 2"
     restartBtn.classList.add("invisible");
-    choices.classList.remove("invisible");
+    rock.classList.remove("invisible");
+    paper.classList.remove("invisible");
+    scissors.classList.remove("invisible");
 });
 
 
