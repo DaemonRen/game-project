@@ -38,6 +38,9 @@ let gameOverWin;
 let gameOverLose;
 // console.log(choicePressed);
 
+aiScore_span.innerHTML = 0;
+playerScore_span.innerHTML = 0;
+
 const aiChoicePressed = (() => {
     const aiChoice = ["Rock", "Paper", "Scissors"];
     for (i = 0; i < aiChoice.length; i++) {
@@ -76,17 +79,23 @@ const win = (() => {
     console.log("Win");
     userScore++;
     playerScore_span.innerHTML = userScore;
-})
+    if (userScore >= 3) {
+        prompt.innerHTML = "You win!"
+    }
+});
 
 const lose = (() => {
     console.log("Lose");
     aiScore = aiScore + 1;
     aiScore_span.innerHTML = aiScore
-})
+    if (aiScore >= 3) {
+        prompt.innerHTML = "You lose!"
+    }
+});
 
 const draw = (() => {
     console.log("Draw");
-})
+});
 
 choices.forEach(choice => {
     choice.addEventListener("click", (event) => {
@@ -96,7 +105,7 @@ choices.forEach(choice => {
         setTimeout(() => { 
             // alert("Test");
             aiChoicePressed ();
-            console.log(aiChoicePressed);
+            // console.log(aiChoicePressed);
             resolve ();
         }, 1000);
 
