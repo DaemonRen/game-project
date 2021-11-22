@@ -2,7 +2,7 @@
 
 This project is to make a fully functioning browser based game using HTML, CSS/SCSS and JavaScript.
 
-[Named Link](https://daemonren.github.io/game-project/ "Rock, Paper, Scissors")
+[Rock, Paper, Scissors](https://daemonren.github.io/game-project/ "Rock, Paper, Scissors")
 
 
 ## Requirements ##
