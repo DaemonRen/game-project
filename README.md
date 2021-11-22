@@ -30,6 +30,7 @@ This project is to make a fully functioning browser based game using HTML, CSS/S
 • Add a link to this project on your portfolio – this is your first chance to really show off
   your web skills!
 
+#Rock, Paper, Scissors game
 
 ## Process ##
 
